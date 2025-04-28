@@ -22,14 +22,13 @@ class ProductDetail extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.shopping_cart),
             onPressed: () {
-              // Navigate to the cart screen
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => CartScreen(
                     cartItems: cartItems,
                     onOpenCartPressed: () {
-                      // Handle opening cart screen
+
                     },
                     product: {},
                   ),
@@ -40,7 +39,6 @@ class ProductDetail extends StatelessWidget {
           IconButton(
             icon: Icon(Icons.favorite),
             onPressed: () {
-              // Navigate to the favorites screen
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -104,7 +102,6 @@ class ProductDetail extends StatelessWidget {
                 children: [
                   ElevatedButton(
                     onPressed: () {
-                      // Add the product to the cart
                       _addToCart(context, product);
                     },
                     child: Text('add to cart'),
@@ -113,7 +110,6 @@ class ProductDetail extends StatelessWidget {
                   IconButton(
                     icon: Icon(Icons.favorite),
                     onPressed: () {
-                      // Add the product to favorites
                       _addToFavorites(context, product);
                     },
                   ),
@@ -125,22 +121,16 @@ class ProductDetail extends StatelessWidget {
       ),
     );
   }
-
   void _addToCart(BuildContext context, Map<String, dynamic> product) {
-    // Add the selected product to the cart
     cartItems.add(product);
 
-    // Show a snackbar message
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('product added to the cart')),
     );
   }
-
   void _addToFavorites(BuildContext context, Map<String, dynamic> product) {
-    // Add the selected product to favorites
     favoriteItems.add(product);
 
-    // Show a snackbar message
     ScaffoldMessenger.of(context).showSnackBar(
       SnackBar(content: Text('product added to the cart')),
     );

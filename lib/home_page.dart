@@ -3,7 +3,7 @@ import 'package:electric_store/profile_page.dart';
 import 'package:flutter/material.dart';
 import 'package:electric_store/cart.dart';
 import 'package:electric_store/product_detail.dart';
-import 'package:electric_store/menu_page.dart'; // Import the menu_page.dart file
+import 'package:electric_store/menu_page.dart';
 
 class HomeScreen extends StatefulWidget {
   @override
@@ -11,9 +11,8 @@ class HomeScreen extends StatefulWidget {
 }
 
 class _HomeScreenState extends State<HomeScreen> {
-  String _selectedCategory = ''; // Track the selected category
+  String _selectedCategory = '';
 
-  // Define lists of products for each category
   List<Map<String, dynamic>> _products = [
     {
       'name': 'Iphone 13 Pro Max',
@@ -114,7 +113,6 @@ class _HomeScreenState extends State<HomeScreen> {
   @override
   void initState() {
     super.initState();
-    // Set a default category when the screen is first loaded
     _selectedCategory = 'phone';
   }
 
@@ -122,11 +120,11 @@ class _HomeScreenState extends State<HomeScreen> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
-        backgroundColor: Color.fromRGBO(81, 87, 214, 1.0),
+        backgroundColor: Color.fromRGBO(0, 150, 136, 1.0),
         title: Text(
-          'online store',
+          'ONLINE STORE',
           style: TextStyle(
-            fontSize: 26,
+            fontSize: 30,
             fontWeight: FontWeight.bold,
           ),
         ),
@@ -156,15 +154,15 @@ class _HomeScreenState extends State<HomeScreen> {
           child: Column(
             children: [
               Text(
-                "category",
+                "CATEGORY",
                 style: TextStyle(
                   color: Colors.black,
-                  fontSize: 27,
+                  fontSize: 30,
                   fontWeight: FontWeight.bold,
                 ),
               ),
               SizedBox(
-                height: 20,
+                height: 30,
               ),
               Row(
                 children: [
@@ -177,9 +175,9 @@ class _HomeScreenState extends State<HomeScreen> {
                 ],
               ),
               SizedBox(
-                height: 16,
+                height: 18,
               ),
-              // Display products based on the selected category
+
               buildProductGrid(),
             ],
           ),
@@ -187,23 +185,21 @@ class _HomeScreenState extends State<HomeScreen> {
       ),
       bottomNavigationBar: BottomNavigationBar(
         selectedItemColor: Colors.blue,
-        unselectedItemColor: Colors.grey,
-        currentIndex: 0, // Change this to the index of the current tab
+        unselectedItemColor: Colors.teal,
+        currentIndex: 0,
         onTap: (int index) {
-          // Handle bottom navigation item taps here
+
           switch (index) {
             case 0:
-              // Handle home button tap
               break;
             case 1:
-              // Handle cart button tap
+
               Navigator.push(
                 context,
                 MaterialPageRoute(
                   builder: (context) => CartScreen(
                     cartItems: List.empty(),
                     onOpenCartPressed: () {
-                      // Handle opening cart screen
                     },
                     product: {},
                   ),
@@ -211,7 +207,6 @@ class _HomeScreenState extends State<HomeScreen> {
               );
               break;
             case 2:
-              // Handle account button tap Navigator.push(
               Navigator.push(
                 context,
                 MaterialPageRoute(
@@ -239,7 +234,7 @@ class _HomeScreenState extends State<HomeScreen> {
             label: 'the main',
           ),
           BottomNavigationBarItem(
-            icon: Icon(Icons.shopping_cart_sharp),
+            icon:  Icon(Icons.shopping_cart_sharp),
             label: 'cart',
           ),
           BottomNavigationBarItem(
@@ -261,8 +256,8 @@ class _HomeScreenState extends State<HomeScreen> {
       style: ButtonStyle(
         backgroundColor: MaterialStateProperty.all<Color>(
           isSelected
-              ? Color.fromARGB(255, 6, 14, 227)
-              : Color.fromRGBO(89, 190, 230, 1),
+              ? Color.fromARGB(255, 33, 150, 243)
+              : Color.fromRGBO(0, 150, 136, 1.0),
         ),
       ),
       onPressed: () {
@@ -274,7 +269,7 @@ class _HomeScreenState extends State<HomeScreen> {
         category,
         style: TextStyle(
           color: isSelected ? Colors.white : Colors.black,
-          fontSize: 18,
+          fontSize: 20,
           fontWeight: FontWeight.bold,
         ),
       ),
@@ -322,7 +317,7 @@ class ProductCard extends StatelessWidget {
           Expanded(
             flex: 1,
             child: Container(
-              height: 150, // Fixed height for the image container
+              height: 150,
               child: ListView(
                 scrollDirection: Axis.horizontal,
                 children: [
@@ -335,7 +330,7 @@ class ProductCard extends StatelessWidget {
             ),
           ),
           Padding(
-            padding: const EdgeInsets.all(5.0),
+            padding: const EdgeInsets.all(-0),
             child: Column(
               crossAxisAlignment: CrossAxisAlignment.start,
               children: [
@@ -346,15 +341,15 @@ class ProductCard extends StatelessWidget {
                     fontWeight: FontWeight.bold,
                   ),
                 ),
-                SizedBox(height: 4),
+                SizedBox(height: 2),
                 Text(
                   '\$${product['price']}',
                   style: TextStyle(
-                    fontSize: 16,
-                    color: Colors.grey,
+                    fontSize: 18,
+                    color: Colors.red,
                   ),
                 ),
-                SizedBox(height: 8),
+                SizedBox(height: 10),
                 ElevatedButton(
                   onPressed: () {
                     Navigator.push(
@@ -368,7 +363,7 @@ class ProductCard extends StatelessWidget {
                       ),
                     );
                   },
-                  child: Text('buy now'),
+                  child: Text('buy now',),
                 ),
               ],
             ),
@@ -420,7 +415,6 @@ class ProductSearch extends SearchDelegate<String> {
         return ListTile(
           title: Text(product['name']),
           onTap: () {
-            // Handle tapping on search result
             Navigator.push(
               context,
               MaterialPageRoute(

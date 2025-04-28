@@ -27,7 +27,6 @@ class _LogInState extends State<LogIn> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
-          // Wrap with SingleChildScrollView
           child: Padding(
             padding: const EdgeInsets.only(left: 5, top: 130),
             child: Form(
@@ -40,15 +39,15 @@ class _LogInState extends State<LogIn> {
                       color: Colors.white,
                       fontSize: 33,
                       fontWeight: FontWeight.bold,
+                      ),
                     ),
-                  ),
                   SizedBox(
-                    height: 120,
-                  ),
+                      height: 120,
+                    ),
                   TextFormField(
                     controller: _usernameController,
                     validator: (value) {
-                      if (value == null || value.isEmpty) {
+                      if (value != "aaaa" || value!.isEmpty) {
                         return 'please enter your username';
                       }
                       return null;
@@ -75,7 +74,7 @@ class _LogInState extends State<LogIn> {
                     obscureText: isSecure,
                     maxLength: 10,
                     validator: (value) {
-                      if (value == null || value.isEmpty) {
+                      if (value != "1111" || value!.isEmpty) {
                         return 'Please enter the password';
                       }
                       return null;
@@ -114,7 +113,6 @@ class _LogInState extends State<LogIn> {
                       ElevatedButton(
                         onPressed: () {
                           if (_formKey.currentState!.validate()) {
-                            // Handle login
                             Navigator.push(
                               context,
                               MaterialPageRoute(
@@ -127,7 +125,6 @@ class _LogInState extends State<LogIn> {
                       ),
                       TextButton(
                         onPressed: () {
-                          // Navigate to the registration screen
                           Navigator.push(
                             context,
                             MaterialPageRoute(

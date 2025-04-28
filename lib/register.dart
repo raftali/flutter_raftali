@@ -15,6 +15,7 @@ class _RegisterState extends State<Register> {
   @override
   Widget build(BuildContext context) {
     return Container(
+
       decoration: BoxDecoration(
         image: DecorationImage(
           image: AssetImage('assets/images/login.png'),
@@ -24,7 +25,6 @@ class _RegisterState extends State<Register> {
       child: Scaffold(
         backgroundColor: Colors.transparent,
         body: SingleChildScrollView(
-          // Wrap with SingleChildScrollView
           child: Padding(
             padding: const EdgeInsets.only(left: 5, top: 130),
             child: Column(

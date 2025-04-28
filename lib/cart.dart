@@ -26,7 +26,7 @@ class _CartScreenState extends State<CartScreen> {
 
   Widget _buildCart() {
     if (widget.cartItems.isEmpty) {
-      return Center(
+      return const Center(
         child: Text('your cart is empty'),
       );
     } else {
@@ -41,7 +41,6 @@ class _CartScreenState extends State<CartScreen> {
               icon: Icon(Icons.delete),
               onPressed: () {
                 setState(() {
-                  // Remove the product from the cart
                   widget.cartItems.removeAt(index);
                 });
               },
